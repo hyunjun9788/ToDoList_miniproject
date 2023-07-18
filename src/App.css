@@ -19,13 +19,14 @@
   font-weight: bold;
 
 }
-.item-input{
+
+.item-input form{
   display:flex;
 
-  height: 30px;
 }
+
 input{
-  width:100%;
+  width:500px;
 }
 .add-bt{
   font-size:10px;
