@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import {useRef, useState} from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    const [inputs, setInputs] = useState('')
+    const inputRef = useRef(null)
 
-export default App;
+    function onChangeInput(e) {
+        setInputs(e.target.value)
+    }
+
+    function onClickHandler() {
+        setInputs('')
+        inputRef.current.focus()
+    }
+
+    return (
+        <div className='box'>
+            <div className='container'>
+                <div className='header'>Todo List</div>
+                <div className='item-input'>
+                    <input ref={inputRef} value={inputs} onChange={onChangeInput} placeholder='할 일을 입력하세요'/>
+                    <button className='add-bt' onClick={onClickHandler}>추가</button>
+                </div>
+            </div>
+        </div>
+
+            );
+            }
+
+            export default App;
