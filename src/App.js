@@ -21,6 +21,10 @@ function App() {
         setInput('')
     }
 
+    function onDelete(index){
+        setInputs((prevState)=>prevState.filter((_,idx)=>idx!==index))
+    }
+
     return (
         <div className='box'>
             <div className='container'>
@@ -31,7 +35,7 @@ function App() {
                     <button className='add-bt'>추가</button>
                     </form>
                     <div>
-                        {inputs.map((item)=><div className='item-box'>{item}</div>)}
+                        {inputs.map((item,index)=><div className='item-box' key={index}>{item}<button className='delete' key={index} onClick={()=>onDelete(index)}>삭제</button></div>)}
                     </div>
                 </div>
             </div>
