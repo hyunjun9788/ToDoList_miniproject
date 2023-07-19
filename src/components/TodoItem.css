@@ -1,0 +1,15 @@
+.item-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    height: 40px;
+    padding-left: 5px;
+}
+
+.delete {
+    margin-left: auto;
+    height: 20px;
+    margin-right: 10px;
+    line-height: 10px;
+}
