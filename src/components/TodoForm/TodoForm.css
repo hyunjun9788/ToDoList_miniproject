@@ -4,5 +4,10 @@ input {
 
 .add-bt {
     font-size: 10px;
-    width: 40px;
+    width: 50px;
+}
+
+.all-delete{
+    width:50px;
+    font-size:10px;
 }

@@ -6,7 +6,7 @@ function TodoList() {
     const [input, setInput] = useState("");
     const [inputs, setInputs] = useState([]);
     const inputRef = useRef(null);
-
+    const [isAlertVisible, setIsAlertVisible] = useState(true)
     function onChangeInput(e) {
         setInput(e.target.value);
     }
@@ -16,14 +16,21 @@ function TodoList() {
         setInput("");
         inputRef.current.focus();
         if (input === "") {
+            isAlertVisible&&alert('할 일을 입력해주세요')
             return;
         }
         setInputs((prevState) => [input, ...prevState]);
-        setInput("");
     }
 
     function onDelete(index) {
         setInputs((prevState) => prevState.filter((_, idx) => idx !== index));
+    }
+
+    function onAllDeleteHandler(){
+        setInput("");
+        inputRef.current.focus();
+        setInputs([])
+        setIsAlertVisible(false)
     }
 
     return (
@@ -33,11 +40,11 @@ function TodoList() {
                 value={input}
                 onChange={onChangeInput}
                 onSubmit={onSubmitHandler}
+                onClick={onAllDeleteHandler}
             />
             <div>
                 {inputs.map((item, index) => (
                     <TodoItem
-                        key={index}
                         item={item}
                         index={index}
                         onDelete={onDelete}
